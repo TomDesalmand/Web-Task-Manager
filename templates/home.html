@@ -1,0 +1,33 @@
+{% extends 'home_base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class = "manager">
+    <h1>Task Control</h1>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added on</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href = "" > Delete</a>
+                    <br>
+                    <a href = "" > Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action = "/" method = "POST">
+        <input type = "text" name = "content" id = "content">
+        <input type = "submit" value = "add Task">
+    </form>
+</div>
+{% endblock %}
